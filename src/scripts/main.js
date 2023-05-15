@@ -32,6 +32,7 @@ function renderImages(arrImg) {
             li.setAttribute('data-num', index);
             const wrapImg = document.createElement('div');
             wrapImg.classList.add('img-wrap');
+            wrapImg.addEventListener('click', openModal);
             const imgElement = document.createElement('img');
             imgElement.src = img.imgSrc;
             imgElement.alt = 'img';
@@ -39,7 +40,7 @@ function renderImages(arrImg) {
             const btn = document.createElement('button');
             btn.classList.add('btn');
             btn.setAttribute('data-num', index);
-            btn.addEventListener('click', openModal)
+            btn.addEventListener('click', delate)
             const imgBtn = document.createElement('img');
             imgBtn.src = '/img/close.svg';
             imgBtn.alt = 'close-img';
@@ -50,6 +51,28 @@ function renderImages(arrImg) {
             listImg.appendChild(li);
         }
     });
+}
+
+function openModal(event) {
+    const imgSrc = event.target.getAttribute('src');
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+    const img = document.createElement('img');
+    img.setAttribute('src', imgSrc);
+    img.setAttribute('alt', 'modal image');
+    modal.appendChild(img);
+    const closeButton = document.createElement('button');
+    closeButton.classList.add('close-button');
+    closeButton.innerHTML = '<img src="/img/close.svg" alt="close">';
+    closeButton.addEventListener('click', () => {
+        modal.remove();
+    });
+    modal.appendChild(closeButton);
+    document.body.appendChild(modal);
+}
+
+function delate(event) {
+    console.log('event');
 }
 
 function updateTime() {
