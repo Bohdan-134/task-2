@@ -36,6 +36,15 @@ function renderImages(arrImg) {
             imgElement.src = img.imgSrc;
             imgElement.alt = 'img';
             wrapImg.appendChild(imgElement)
+            const btn = document.createElement('button');
+            btn.classList.add('btn');
+            btn.setAttribute('data-num', index);
+            btn.addEventListener('click', openModal)
+            const imgBtn = document.createElement('img');
+            imgBtn.src = '/img/close.svg';
+            imgBtn.alt = 'close-img';
+            btn.appendChild(imgBtn);
+            li.appendChild(btn);
             li.appendChild(wrapImg);
             const listImg = document.querySelector('.img-list');
             listImg.appendChild(li);

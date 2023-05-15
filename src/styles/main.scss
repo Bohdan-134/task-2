@@ -11,13 +11,14 @@ body {
 }
 
 .top-panel {
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 99;
     width: 500px;
     height: 46px;
-    background: rgba(126, 142, 165, 0.51);
+    background: rgba(126, 142, 165, 0.70);
     border-radius: 0px 0px 23px 23px;
     @include flex(row, space-around, center);
     li {
@@ -26,7 +27,7 @@ body {
             margin-right: 10px;
         }
         span {
-            @include font(15px, 400, 15px, #fff);
+            @include font(15px, 300, 12px, #fff);
         }
     }
 }
@@ -40,6 +41,7 @@ body {
     flex-wrap: wrap;
     @include flex(row, center, center);
     .img-item {
+        position: relative;
         flex-basis: 25%;
         margin: 25px 0;
         @include flex(row, center, center);
@@ -67,6 +69,57 @@ body {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+        }
+        .btn {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9;
+            border-radius: 50%;
+            background-color: #E05A7A;
+            transition: .5s;
+            @include flex(row, center, center);
+            img {
+                width: 20px;
+                height: 20px;
+            }
+            &:hover {
+                transform: translateX(-50%) rotate(300deg) scale(1.2);
+                box-shadow: 0 0 10px #00000087;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .img-list {
+        .img-item {
+            flex-basis: 50%;
+            &:nth-child(2n+1) .img-wrap {
+                border: 5px solid #E05A7A;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .top-panel {
+        width: 300px;
+        li {
+            span {
+                @include font(12px, 300, 12px, #fff);
+            }
+        }
+    }
+    .img-list {
+        .img-item {
+            flex-basis: 100%;
+            &:nth-child(2n+1) .img-wrap {
+                border: 5px solid #7E8EA5;
+            }
         }
     }
 }
