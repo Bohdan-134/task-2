@@ -23,7 +23,7 @@ const paths = {
         dist: 'dist/js/'
     },
     img: {
-        src: 'src/img/**/*.{png,svg,jpeg}',
+        src: 'src/img/**/*.{png,svg,jpeg,jpg}',
         dist: 'dist/img/'
     }
 }
