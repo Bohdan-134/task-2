@@ -30,10 +30,13 @@ function renderImages(arrImg) {
             const li = document.createElement('li');
             li.classList.add('img-item');
             li.setAttribute('data-num', index);
+            const wrapImg = document.createElement('div');
+            wrapImg.classList.add('img-wrap');
             const imgElement = document.createElement('img');
             imgElement.src = img.imgSrc;
             imgElement.alt = 'img';
-            li.appendChild(imgElement);
+            wrapImg.appendChild(imgElement)
+            li.appendChild(wrapImg);
             const listImg = document.querySelector('.img-list');
             listImg.appendChild(li);
         }
